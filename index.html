@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="main.js" defer></script>
+
+    <title>Show Watchlist</title>
 </head>
+
 <body>
-    
+    <header class="site-header">
+        <h1 class="main-heading">Find your show</h1>
+        <a href="watchlist.html" class="navigation-tag">
+            <span>My Watchlist</span>
+        </a>
+    </header>
+
+    <main>
+        <div id="search-bar" class="search-bar">
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="text">
+            <button>
+                <p>Search</p>
+            </button>
+        </div>
+        <section id="shows-section" class="show-section">
+            <div class="movie-icon-container">
+                <svg class="movie-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="rgb(30, 48, 80)" d="M0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM48 368l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm304-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM48 240l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm304-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM48 112l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16L64 96c-8.8 0-16 7.2-16 16zM352 96c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/>
+                </svg>
+                <span>Start exploring</span>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Dav's Show Watchlist App</p>
+        <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+        <img class="tmdb-logo" src="/assets/tmdb-logo.svg" alt="TMDb logo" />
+    </footer>
 </body>
 </html>
