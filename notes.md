@@ -43,3 +43,11 @@ const show = {
     releaseDate: "",
     overview: ""
 }
+
+
+hue 34
+sat 24
+lum 86  
+r 183
+g 155
+b 0
