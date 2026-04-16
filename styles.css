@@ -1,3 +1,9 @@
+
+
+* { border: 1px solid red !important; }
+
+
+
 /* ====================
    Base
    ==================== */
@@ -35,11 +41,75 @@ a {
   margin-inline: auto;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: blueviolet;
+}
+
+main {
+  background-color: black;
+  /* height: 100%; */
+}
+
+.site-header {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.search-section {
+  position: relative;
+}
+
+.search-bar {
+  background-color: chartreuse;
+  position: absolute;
+  width: 100%;
+  top: -11px;  
+  display: flex;
+  /* justify-content: ; */
+}
+
+.search-input {
+  flex: 1;
+}
+
+.movie-icon-div {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+footer {
+  background-color: #313131;
+  color: #fff;
+}
+
+.footer-container  {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0;
+
+}
 
 
 
 
 
+
+.film-icon {
+  width: 50px;
+}
 
 .tmdb-logo {
   width: 40px;
