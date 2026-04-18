@@ -82,6 +82,11 @@ main {
   min-height: 70vh;
 }
 
+.show-card {
+  background-color: blueviolet;
+  color: #fff;
+}
+
 footer {
   background-color: #313131;
   color: #fff;
