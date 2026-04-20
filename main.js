@@ -31,6 +31,43 @@ const generateShowHtml = (shows) => {
   return feedHtml
 }
 
+const curateShows = (shows) => {
+  return shows.map(show => {
+    const {
+      id,
+      first_air_date,
+      backdrop_path,
+      poster_path,
+      title,
+      name,
+      original_title,
+      original_name,
+      media_type,
+      overview,
+      vote_average
+    } = show
+
+    const label =
+      title ??
+      name ??
+      original_title ??
+      original_name ??
+      "No title"
+
+    return {
+      id,
+      first_air_date,
+      backdrop_path,
+      poster_path,
+      label,
+      media_type,
+      overview,
+      vote_average
+    }
+  })
+}
+
+
 const handleClick = async (e) => {
   e.preventDefault()
 
