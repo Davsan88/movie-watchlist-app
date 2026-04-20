@@ -32,39 +32,37 @@ const generateShowHtml = (shows) => {
 }
 
 const curateShows = (shows) => {
-  return shows.map(show => {
-    const {
-      id,
+  return shows.map(({
+    id,
+    first_air_date,
+    backdrop_path,
+    poster_path,
+    title,
+    name,
+    original_title,
+    original_name,
+    media_type,
+    overview,
+    vote_average
+  }) => ({
+    id,
+    releaseDate: 
       first_air_date,
+    backdropPath: 
       backdrop_path,
+    posterPath:
       poster_path,
-      title,
-      name,
-      original_title,
-      original_name,
-      media_type,
-      overview,
-      vote_average
-    } = show
-
-    const label =
+    media_type,
+    overview,
+    rating: 
+      vote_average,
+    label:
       title ??
       name ??
       original_title ??
       original_name ??
       "No title"
-
-    return {
-      id,
-      first_air_date,
-      backdrop_path,
-      poster_path,
-      label,
-      media_type,
-      overview,
-      vote_average
-    }
-  })
+  }))
 }
 
 
