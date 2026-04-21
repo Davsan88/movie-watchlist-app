@@ -25,7 +25,7 @@
 
 # 3 Building Order
 1. HTML/CSS scaffold **DONE**
-2. Search + fetch + render results 
+2. Search + fetch + render results **DONE**
 3. Define and test the movie object shape
 4. Add to watchlist (localStorage)
 5. Render watchlist
