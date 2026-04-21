@@ -14,13 +14,13 @@ const generateShowHtml = (shows) => {
   shows.forEach(show => {
     feedHtml += `
       <div class="show-card" data-id="${show.id}">
-        <img class="show-card-img" src="${show.poster_path}"/>
+        <img class="show-card-img" src="https://image.tmdb.org/t/p/w500/${show.posterPath}"/>
         <div class="show-card-info">
           <h2 class="show-title">
-            ${show.name || show.title} <span>${show.vote_average} </span>
+            ${show.label} <span>${show.rating} </span>
           </h2>
           <div class="show-details">
-            <span>${show.media_type}</span>
+            <span>${show.mediaType}</span>
             <button>Watchlist</button>
           </div>
           <p>${show.overview}</p>
@@ -32,9 +32,17 @@ const generateShowHtml = (shows) => {
 }
 
 const curateShows = (shows) => {
-  return shows.map(({
+  const movieAndTvShows = shows.filter(show => {
+    
+    const allowedTypes = ["movie", "tv"]
+    return allowedTypes.includes(show.media_type)
+
+  })
+
+  return movieAndTvShows.map(({
     id,
     first_air_date,
+    release_date,
     backdrop_path,
     poster_path,
     title,
@@ -47,12 +55,14 @@ const curateShows = (shows) => {
   }) => ({
     id,
     releaseDate: 
+      release_date ??
       first_air_date,
     backdropPath: 
       backdrop_path,
     posterPath:
       poster_path,
-    media_type,
+    mediaType:
+      media_type,
     overview,
     rating: 
       vote_average,
@@ -80,10 +90,12 @@ const handleClick = async (e) => {
   const data = await res.json()
 
   showsArr = data.results
-  // showsSection.innerHTML = generateShowHtml(showsArr)
-  console.log(showsArr)
 
-  console.log(curateShows(showsArr))
+  const curatedShowsArr = curateShows(showsArr)
+
+  showsSection.innerHTML = generateShowHtml(curatedShowsArr)
+
+  console.log(curatedShowsArr)
 
 }
 
