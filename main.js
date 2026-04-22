@@ -113,3 +113,10 @@ const handleAddToWatchlist = showId => {
 
 form.addEventListener('submit', handleClick)
 
+showsSection.addEventListener('click', function (e) {
+  if (!e.target.dataset.id) return
+
+  const btnId = Number(e.target.dataset.id)
+
+  handleAddToWatchlist(btnId)
+})
