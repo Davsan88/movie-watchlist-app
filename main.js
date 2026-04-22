@@ -4,7 +4,10 @@ const searchBtn = document.getElementById('search-btn')
 const showsSection = document.getElementById('shows-section')
 
 
-let showsArr = []
+
+let curatedShowsArr = []
+let watchList = []
+
 
 // Pure helper (generate HTML)
 
@@ -13,7 +16,7 @@ const generateShowHtml = (shows) => {
 
   shows.forEach(show => {
     feedHtml += `
-      <div class="show-card" data-id="${show.id}">
+      <div class="show-card">
         <img class="show-card-img" src="https://image.tmdb.org/t/p/w500/${show.posterPath}"/>
         <div class="show-card-info">
           <h2 class="show-title">
@@ -21,13 +24,14 @@ const generateShowHtml = (shows) => {
           </h2>
           <div class="show-details">
             <span>${show.mediaType}</span>
-            <button>Watchlist</button>
+            <button class="add-btn" data-id="${show.id}">Watchlist</button>
           </div>
           <p>${show.overview}</p>
         </div>
       </div>
     `
   })
+
   return feedHtml
 }
 
@@ -89,15 +93,23 @@ const handleClick = async (e) => {
   const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&query=${encodeURIComponent(inputValue)}`)
   const data = await res.json()
 
-  showsArr = data.results
-
-  const curatedShowsArr = curateShows(showsArr)
+  curatedShowsArr = curateShows(data.results)
 
   showsSection.innerHTML = generateShowHtml(curatedShowsArr)
-
-  console.log(curatedShowsArr)
-
 }
 
 
+const handleAddToWatchlist = showId => {
+  const targetShow = curatedShowsArr.find(show => show.id === showId)
+
+  watchList.push(targetShow)
+
+  localStorage.setItem('watchlist', JSON.stringify( watchList ))
+
+  console.log(JSON.parse(localStorage.getItem('watchlist')))
+}
+
+
+
 form.addEventListener('submit', handleClick)
+
