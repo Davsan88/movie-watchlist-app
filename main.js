@@ -1,12 +1,22 @@
 const form = document.getElementById('search-bar')
 const searchInput = document.getElementById('search-input')
 const searchBtn = document.getElementById('search-btn')
-const showsSection = document.getElementById('shows-section')
+const showsSection = document.getElementById('shows-section') 
+const watchlistSection = document.getElementById('watchlist-section')
 
 
 
 let curatedShowsArr = []
 let watchList = []
+
+
+const initializeWatchList = () => {
+  if(!localStorage.getItem('watchlist')) { return }
+
+  watchList = JSON.parse(localStorage.getItem('watchlist'))
+}
+
+
 
 
 // Pure helper (generate HTML)
@@ -24,7 +34,8 @@ const generateShowHtml = (shows) => {
           </h2>
           <div class="show-details">
             <span>${show.mediaType}</span>
-            <button class="add-btn" data-id="${show.id}">Watchlist</button>
+            <button class="add-btn hidden" data-action="add" data-id="${show.id}" >Watchlist</button>
+            <button class="remove-btn hidden" data-action="remove" data-id="${show.id}" >Remove</button>
           </div>
           <p>${show.overview}</p>
         </div>
@@ -96,6 +107,15 @@ const handleClick = async (e) => {
   curatedShowsArr = curateShows(data.results)
 
   showsSection.innerHTML = generateShowHtml(curatedShowsArr)
+
+  const addBtns = document.querySelectorAll('[data-action="add"]')
+
+  addBtns.forEach(btn => {
+    if (btn.dataset.action === 'add') {
+      btn.style.display = 'block'
+    }
+
+  })
 }
 
 
@@ -110,11 +130,11 @@ const handleAddToWatchlist = showId => {
 }
 
 
-
 form.addEventListener('submit', handleClick)
 
+
 showsSection.addEventListener('click', function (e) {
-  if (!e.target.dataset.id) return
+  if (!e.target.dataset.action) return
 
   const btnId = Number(e.target.dataset.id)
 
