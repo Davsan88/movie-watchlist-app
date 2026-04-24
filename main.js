@@ -1,19 +1,19 @@
 const form = document.getElementById('search-bar')
 const searchInput = document.getElementById('search-input')
 const searchBtn = document.getElementById('search-btn')
-const showsSection = document.getElementById('shows-section') 
+const showsSection = document.getElementById('shows-section')
 const watchlistSection = document.getElementById('watchlist-section')
 
 
 
 let curatedShowsArr = []
-let watchList = []
+let watchlist = []
 
 
 const initializeWatchList = () => {
-  if(!localStorage.getItem('watchlist')) { return }
+  if (!localStorage.getItem('watchlist')) { return }
 
-  watchList = JSON.parse(localStorage.getItem('watchlist'))
+  watchlist = JSON.parse(localStorage.getItem('watchlist'))
 }
 
 
@@ -21,34 +21,39 @@ const initializeWatchList = () => {
 
 // Pure helper (generate HTML)
 
-const generateShowHtml = (shows) => {
+const generateShowHtml = (shows, mode) => {
+  const buttonText = mode === 'add' ? 'Watchlist' : 'Remove'
+  const action = mode === 'add' ? 'add' : 'remove'
+  
   let feedHtml = ''
-
+  
   shows.forEach(show => {
+
     feedHtml += `
-      <div class="show-card">
-        <img class="show-card-img" src="https://image.tmdb.org/t/p/w500/${show.posterPath}"/>
-        <div class="show-card-info">
-          <h2 class="show-title">
-            ${show.label} <span>${show.rating} </span>
-          </h2>
-          <div class="show-details">
-            <span>${show.mediaType}</span>
-            <button class="add-btn hidden" data-action="add" data-id="${show.id}" >Watchlist</button>
-            <button class="remove-btn hidden" data-action="remove" data-id="${show.id}" >Remove</button>
-          </div>
-          <p>${show.overview}</p>
-        </div>
-      </div>
+    <div class="show-card">
+    <img class="show-card-img" src="https://image.tmdb.org/t/p/w500/${show.posterPath}"/>
+    <div class="show-card-info">
+    <h2 class="show-title">
+    ${show.label} <span>${show.rating} </span>
+    </h2>
+    <div class="show-details">
+    <span class="media-type-span">${show.mediaType}</span>
+    <button class="action-btn" data-action="${action}"data-id="${show.id}">${buttonText}</button>
+    </div>
+    <p>${show.overview}</p>
+    </div>
+    </div>
     `
   })
-
+  
   return feedHtml
 }
 
+
+
 const curateShows = (shows) => {
   const movieAndTvShows = shows.filter(show => {
-    
+
     const allowedTypes = ["movie", "tv"]
     return allowedTypes.includes(show.media_type)
 
@@ -69,17 +74,17 @@ const curateShows = (shows) => {
     vote_average
   }) => ({
     id,
-    releaseDate: 
+    releaseDate:
       release_date ??
       first_air_date,
-    backdropPath: 
+    backdropPath:
       backdrop_path,
     posterPath:
       poster_path,
     mediaType:
       media_type,
     overview,
-    rating: 
+    rating:
       vote_average,
     label:
       title ??
@@ -106,25 +111,16 @@ const handleClick = async (e) => {
 
   curatedShowsArr = curateShows(data.results)
 
-  showsSection.innerHTML = generateShowHtml(curatedShowsArr)
-
-  const addBtns = document.querySelectorAll('[data-action="add"]')
-
-  addBtns.forEach(btn => {
-    if (btn.dataset.action === 'add') {
-      btn.style.display = 'block'
-    }
-
-  })
+  showsSection.innerHTML = generateShowHtml(curatedShowsArr, 'add')
 }
 
 
 const handleAddToWatchlist = showId => {
   const targetShow = curatedShowsArr.find(show => show.id === showId)
 
-  watchList.push(targetShow)
+  watchlist.push(targetShow)
 
-  localStorage.setItem('watchlist', JSON.stringify( watchList ))
+  localStorage.setItem('watchlist', JSON.stringify(watchlist))
 
   console.log(JSON.parse(localStorage.getItem('watchlist')))
 }
