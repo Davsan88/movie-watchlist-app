@@ -115,6 +115,15 @@ const handleClick = async (e) => {
 }
 
 
+const handleDeleteFromWatchlist = showId => {
+  const storedWatchList = JSON.parse(localStorage.getItem('watchlist'))
+
+  const filteredWatchlist = storedWatchlist.filter(show => show.id !== showId)
+
+  localStorage.setItem('watchlist', JSON.stringify(filteredWatchlist))
+}
+
+
 const handleAddToWatchlist = showId => {
   const targetShow = curatedShowsArr.find(show => show.id === showId)
 
