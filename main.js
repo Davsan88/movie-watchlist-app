@@ -142,6 +142,13 @@ showsSection.addEventListener('click', function (e) {
   if (!e.target.dataset.action) return
 
   const btnId = Number(e.target.dataset.id)
+  const btnAction = (e.target.dataset.action)
 
-  handleAddToWatchlist(btnId)
+  if ( btnAction === 'add') {
+    handleAddToWatchlist(btnId)
+  }
+  
+  if ( btnAction === 'remove') {
+    handleDeleteFromWatchlist(btnId)
+  }
 })
