@@ -139,16 +139,16 @@ form.addEventListener('submit', handleClick)
 
 
 showsSection.addEventListener('click', function (e) {
-  if (!e.target.dataset.action) return
+  const actionBtn = e.target.closest('[data-action]')
 
-  const btnId = Number(e.target.dataset.id)
-  const btnAction = (e.target.dataset.action)
+  if (!actionBtn) return
 
-  if ( btnAction === 'add') {
+  const btnId = Number(actionBtn.dataset.id)
+  const btnAction = actionBtn.dataset.action
+
+  if (btnAction === 'add') {
     handleAddToWatchlist(btnId)
-  }
-  
-  if ( btnAction === 'remove') {
+  } else if (btnAction === 'remove') {
     handleDeleteFromWatchlist(btnId)
   }
 })
