@@ -3,6 +3,7 @@ const searchInput = document.getElementById('search-input')
 const searchBtn = document.getElementById('search-btn')
 const showsSection = document.getElementById('shows-section')
 const watchlistSection = document.getElementById('watchlist-section')
+const myWatchlist = document.getElementById('myWatchlist-link')
 
 
 
@@ -14,6 +15,8 @@ const initializeWatchList = () => {
   if (!localStorage.getItem('watchlist')) { return }
 
   watchlist = JSON.parse(localStorage.getItem('watchlist'))
+
+  watchlistSection.innerHTML = generateShowHtml(watchlist, 'delete')
 }
 
 
@@ -138,6 +141,8 @@ const handleAddToWatchlist = showId => {
 form.addEventListener('submit', handleClick)
 
 
+
+
 showsSection.addEventListener('click', function (e) {
   const actionBtn = e.target.closest('[data-action]')
 
@@ -152,3 +157,6 @@ showsSection.addEventListener('click', function (e) {
     handleDeleteFromWatchlist(btnId)
   }
 })
+
+
+myWatchlist.addEventListener('click', initializeWatchList)
