@@ -16,7 +16,7 @@ const initializeWatchList = () => {
 
   watchlist = JSON.parse(localStorage.getItem('watchlist'))
 
-  watchlistSection.innerHTML = generateShowHtml(watchlist, 'delete')
+  watchlistSection.innerHTML = generateShowHtml(watchlist, 'remove')
 }
 
 
@@ -139,8 +139,6 @@ const handleAddToWatchlist = showId => {
 
 
 form.addEventListener('submit', handleClick)
-
-
 
 
 showsSection.addEventListener('click', function (e) {
