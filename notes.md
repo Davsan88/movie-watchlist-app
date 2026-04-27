@@ -27,7 +27,7 @@
 1. HTML/CSS scaffold **DONE**
 2. Search + fetch + render results **DONE**
 3. Define and test the movie object shape **DONE**
-4. Add to watchlist (localStorage)
+4. Add to watchlist (localStorage) **DONE**
 5. Render watchlist
 6. Delete saved movie
 7. Refactor shared logic
