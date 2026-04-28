@@ -28,8 +28,8 @@
 2. Search + fetch + render results **DONE**
 3. Define and test the movie object shape **DONE**
 4. Add to watchlist (localStorage) **DONE**
-5. Render watchlist
-6. Delete saved movie
+5. Render watchlist **DONE**
+6. Delete saved movie **DONE**
 7. Refactor shared logic
 8. Secure API with Netlify function
 
