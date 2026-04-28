@@ -77,12 +77,18 @@ const handleClick = async (e) => {
 const handleAddToWatchlist = showId => {
   watchlist = JSON.parse(localStorage.getItem('watchlist'))
 
+  !watchlist ? watchlist = [] : ""
+
   const targetShow = curatedShowsArr.find(show => show.id === showId)
 
-  if (watchlist.find(show => show.id !== targetShow.id)) {
-    watchlist.push(targetShow)
-  } 
-    
+  if (!targetShow) return
+
+  const showInWatchlist = watchlist.find(({ id }) => id === targetShow.id)
+
+  showInWatchlist 
+    ? '' 
+    : watchlist.push(targetShow) 
+
   localStorage.setItem('watchlist', JSON.stringify(watchlist))
 
   console.log(JSON.parse(localStorage.getItem('watchlist')))
