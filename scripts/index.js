@@ -75,9 +75,7 @@ const handleClick = async (e) => {
 
 
 const handleAddToWatchlist = showId => {
-  watchlist = JSON.parse(localStorage.getItem('watchlist'))
-
-  !watchlist ? watchlist = [] : ""
+  watchlist = JSON.parse(localStorage.getItem('watchlist')) || []
 
   const targetShow = curatedShowsArr.find(show => show.id === showId)
 
@@ -100,14 +98,16 @@ form.addEventListener('submit', handleClick)
 
 showsSection.addEventListener('click', function (e) {
   const actionBtn = e.target.closest('[data-action]')
-
   if (!actionBtn) return
 
   const btnId = Number(actionBtn.dataset.id)
   const btnAction = actionBtn.dataset.action
+  const originalText = actionBtn.textContent
 
   if (btnAction === 'add') {
-
     handleAddToWatchlist(btnId)
-  } 
+  }
+
+  actionBtn.textContent = 'Saved!'
+  actionBtn.classList.add('saved')
 })
