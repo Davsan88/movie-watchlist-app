@@ -106,8 +106,9 @@ showsSection.addEventListener('click', function (e) {
 
   if (btnAction === 'add') {
     handleAddToWatchlist(btnId)
+    actionBtn.disabled = true
+    actionBtn.textContent = 'Saved!'
+    actionBtn.classList.add('saved')
   }
-
-  actionBtn.textContent = 'Saved!'
-  actionBtn.classList.add('saved')
+  
 })
