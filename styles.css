@@ -73,7 +73,8 @@ main {
   flex: 1;
 }
 
-.movie-icon-div {
+.movie-icon-div,
+.watchlist-icon-div {
   background-color: brown;
   display: flex;
   flex-direction: column;
@@ -113,6 +114,7 @@ footer {
   opacity: 0.7;
 }
 
-button.hidden {
-  display: none;
+button.action-btn:disabled {
+  opacity: 0.6;
+    cursor: not-allowed;
 }
