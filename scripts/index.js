@@ -1,57 +1,13 @@
+import { generateShowHtml } from "./utils.js"
+
 const form = document.getElementById('search-bar')
 const searchInput = document.getElementById('search-input')
 const searchBtn = document.getElementById('search-btn')
 const showsSection = document.getElementById('shows-section')
-const watchlistSection = document.getElementById('watchlist-section')
-const myWatchlist = document.getElementById('myWatchlist-link')
-
 
 
 let curatedShowsArr = []
 let watchlist = []
-
-
-const initializeWatchList = () => {
-  if (!localStorage.getItem('watchlist')) { return }
-
-  watchlist = JSON.parse(localStorage.getItem('watchlist'))
-
-  watchlistSection.innerHTML = generateShowHtml(watchlist, 'remove')
-}
-
-
-
-
-// Pure helper (generate HTML)
-
-const generateShowHtml = (shows, mode) => {
-  const buttonText = mode === 'add' ? 'Watchlist' : 'Remove'
-  const action = mode === 'add' ? 'add' : 'remove'
-  
-  let feedHtml = ''
-  
-  shows.forEach(show => {
-
-    feedHtml += `
-    <div class="show-card">
-    <img class="show-card-img" src="https://image.tmdb.org/t/p/w500/${show.posterPath}"/>
-    <div class="show-card-info">
-    <h2 class="show-title">
-    ${show.label} <span>${show.rating} </span>
-    </h2>
-    <div class="show-details">
-    <span class="media-type-span">${show.mediaType}</span>
-    <button class="action-btn" data-action="${action}"data-id="${show.id}">${buttonText}</button>
-    </div>
-    <p>${show.overview}</p>
-    </div>
-    </div>
-    `
-  })
-  
-  return feedHtml
-}
-
 
 
 const curateShows = (shows) => {
@@ -118,20 +74,15 @@ const handleClick = async (e) => {
 }
 
 
-const handleDeleteFromWatchlist = showId => {
-  const storedWatchList = JSON.parse(localStorage.getItem('watchlist'))
-
-  const filteredWatchlist = storedWatchlist.filter(show => show.id !== showId)
-
-  localStorage.setItem('watchlist', JSON.stringify(filteredWatchlist))
-}
-
-
 const handleAddToWatchlist = showId => {
+  watchlist = JSON.parse(localStorage.getItem('watchlist'))
+
   const targetShow = curatedShowsArr.find(show => show.id === showId)
 
-  watchlist.push(targetShow)
-
+  if (watchlist.find(show => show.id !== targetShow.id)) {
+    watchlist.push(targetShow)
+  } 
+    
   localStorage.setItem('watchlist', JSON.stringify(watchlist))
 
   console.log(JSON.parse(localStorage.getItem('watchlist')))
@@ -150,11 +101,7 @@ showsSection.addEventListener('click', function (e) {
   const btnAction = actionBtn.dataset.action
 
   if (btnAction === 'add') {
+
     handleAddToWatchlist(btnId)
-  } else if (btnAction === 'remove') {
-    handleDeleteFromWatchlist(btnId)
-  }
+  } 
 })
-
-
-myWatchlist.addEventListener('click', initializeWatchList)
