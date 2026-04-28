@@ -26,15 +26,20 @@ const handleDeleteFromWatchlist = showId => {
 
 watchlistSection.addEventListener('click', function (e) {
   const actionBtn = e.target.closest('[data-action]')
-
   if (!actionBtn) return
 
   const btnId = Number(actionBtn.dataset.id)
   const btnAction = actionBtn.dataset.action
+  const originalText = actionBtn.textContent
 
-  if (btnAction === 'remove') {
-    handleDeleteFromWatchlist(btnId)
-  } 
+  actionBtn.textContent = 'Removed!'
+  actionBtn.classList.add('removed')
+
+  setTimeout(() => {
+    if (btnAction === 'remove') {
+      handleDeleteFromWatchlist(btnId)
+    }
+  }, 400)
 })
 
 
