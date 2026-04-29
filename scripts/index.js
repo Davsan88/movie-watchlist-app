@@ -53,7 +53,7 @@ const curateShows = (shows) => {
       media_type,
     overview,
     rating:
-      vote_average,
+      Math.round(vote_average * 10) / 10,
     label:
       title ??
       name ??
