@@ -1,4 +1,4 @@
-import { generateShowHtml } from "./utils.js"
+import { generateShowHtml, generateEmptyStateHtml } from "./utils.js"
 
 const form = document.getElementById('search-bar')
 const searchInput = document.getElementById('search-input')
@@ -9,6 +9,10 @@ const showsSection = document.getElementById('shows-section')
 let curatedShowsArr = []
 let watchlist = []
 
+
+const initializeIndexPage = () => {
+  showsSection.innerHTML = generateEmptyStateHtml('index')
+}
 
 const curateShows = (shows) => {
   const movieAndTvShows = shows.filter(show => {
@@ -112,3 +116,6 @@ showsSection.addEventListener('click', function (e) {
   }
   
 })
+
+
+initializeIndexPage()
