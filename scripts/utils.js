@@ -23,8 +23,6 @@ export const generateEmptyStateHtml = (mode) => {
 }
 
 
-
-
 export const generateShowHtml = (shows, mode) => {
     const buttonText = mode === 'add' ? 'Watchlist' : 'Remove'
     const action = mode === 'add' ? 'add' : 'remove'
@@ -35,7 +33,7 @@ export const generateShowHtml = (shows, mode) => {
         feedHtml += `
 
     <div class="show-card">
-        <img class="show-card-img" src="https://image.tmdb.org/t/p/w500/${show.posterPath}"/>
+        <img class="show-card-img" src="${show.posterUrl}"/>
         
         <div class="show-card-info">
             <h2 class="show-title">

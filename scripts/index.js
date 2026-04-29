@@ -15,10 +15,13 @@ const initializeIndexPage = () => {
 }
 
 const curateShows = (shows) => {
+  const fallBackImg = '../assets/no-image.png'
+  
   const movieAndTvShows = shows.filter(show => {
 
     const allowedTypes = ["movie", "tv"]
     return allowedTypes.includes(show.media_type)
+
 
   })
 
@@ -42,8 +45,10 @@ const curateShows = (shows) => {
       first_air_date,
     backdropPath:
       backdrop_path,
-    posterPath:
-      poster_path,
+    posterUrl:
+      poster_path 
+        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+        : fallBackImg,
     mediaType:
       media_type,
     overview,
