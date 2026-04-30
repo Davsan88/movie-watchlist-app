@@ -30,10 +30,32 @@
 4. Add to watchlist (localStorage) **DONE**
 5. Render watchlist **DONE**
 6. Delete saved movie **DONE**
-7. Refactor shared logic
-8. Secure API with Netlify function
+7. Refactor shared logic **DONE** 
+8. Secure API with Netlify function 
 
 
+# 4 CSS phase
+1. Page shell: header, footer, main spacing
+2. Search bar
+3. Show cards
+4. Watchlist layout
+5. Button states: default, hover, saved, removed,       disabled
+6. Responsive layout
+7. Empty/loading states
+
+# Final checklist
+
+1. Search works
+2. Results render cleanly
+3. Watchlist buttons save items
+4. Saved items persist after refresh
+5. Watchlist page renders saved items
+6. Remove works
+7. Empty watchlist message exists
+8. Missing posters don’t break layout
+9. Ratings are formatted
+10. Basic loading/no-results/error states exist
+11. CSS is responsive enough for mobile + desktop
 
 const show = {
     id: "",
