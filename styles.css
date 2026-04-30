@@ -23,7 +23,17 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-} 
+}
+
+/* ====================
+   Typography
+   ==================== */
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: #404040;
+  line-height: 1.5;
+}
 
 
 /* ====================
@@ -31,7 +41,7 @@ a {
    ==================== */
 
 .container {
-  width: min(100% - 3rem, 900px);
+  width: min(100% - 3rem, 800px);
   margin-inline: auto;
 }
 
@@ -42,7 +52,16 @@ body {
 }
 
 header {
-  background-color: blueviolet;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    url('./assets/banner.png');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
 }
 
 main {
@@ -50,7 +69,7 @@ main {
 }
 
 .site-header {
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +84,7 @@ main {
   background-color: chartreuse;
   position: absolute;
   width: 100%;
-  top: -11px;  
+  top: -11px;
   display: flex;
 }
 
@@ -93,7 +112,7 @@ footer {
   color: #fff;
 }
 
-.footer-container  {
+.footer-container {
   display: flex;
   flex-direction: column;
   padding: 2em 0;
@@ -116,5 +135,5 @@ footer {
 
 button.action-btn:disabled {
   opacity: 0.6;
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
