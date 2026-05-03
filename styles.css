@@ -41,7 +41,7 @@ body {
    ==================== */
 
 .container {
-  width: min(100% - 3rem, 800px);
+  width: min(100% - 4rem, 800px);
   margin-inline: auto;
 }
 
@@ -57,7 +57,7 @@ header {
     url('./assets/banner.png');
   background-size: cover;
   background-position: center;
-  height: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,7 +65,7 @@ header {
 }
 
 main {
-  background-color: black;
+  background-color: rgb(21, 19, 19);
 }
 
 .site-header {
@@ -78,28 +78,52 @@ main {
 
 .search-section {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .search-bar {
-  background-color: chartreuse;
+  background-color: #2E2E2F;
   position: absolute;
   width: 100%;
-  top: -11px;
+  /* height: 25px; */
+  top: -18px;
   display: flex;
+  border: none;
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
+  /* gap: 1em; */
+}
+
+.search-icon {
+  color: #fff;
+  padding: 0.5em 1em;
 }
 
 .search-input {
   flex: 1;
+  border: none;
+  background-color: #2E2E2F;
+  color: #fff;
+}
+
+#search-btn {
+  border: none;
+  background-color: #4B4B4B;
+  border-radius: 0 7px 7px 0;
+  width: 90px;
+  color: #fff;
+  
 }
 
 .movie-icon-div,
 .watchlist-icon-div {
-  background-color: brown;
+  /* background-color: brown; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  min-height: 55vh;
 }
 
 .show-card {
@@ -115,7 +139,7 @@ footer {
 .footer-container {
   display: flex;
   flex-direction: column;
-  padding: 2em 0;
+  padding: 1em 2em;
 
 }
 
