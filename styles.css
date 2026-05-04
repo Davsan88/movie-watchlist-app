@@ -118,7 +118,7 @@ main {
 
 .movie-icon-div,
 .watchlist-icon-div {
-  /* background-color: brown; */
+  opacity: 0.5;
   display: flex;
   flex-direction: column;
   justify-content: center;
