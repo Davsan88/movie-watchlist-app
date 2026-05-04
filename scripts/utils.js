@@ -53,7 +53,7 @@ export const generateShowHtml = (shows, mode) => {
                         ${buttonText}
                 </button>
             </div>
-            <p>${show.overview}</p>
+            <p class="show-overview">${show.overview}</p>
         </div>
     </div>
     `
