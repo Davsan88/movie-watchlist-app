@@ -40,6 +40,7 @@ a {
 
 body {
   font-family: 'Outfit', sans-serif;
+  font-weight: 200;
   color: #404040;
   line-height: 1.5;
 }
@@ -74,7 +75,7 @@ header {
     url('./assets/banner.png');
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,7 +83,8 @@ header {
 }
 
 main {
-  background-color: rgb(21, 19, 19);
+  background-color: #151313;
+  padding-bottom: 2em;
 }
 
 .site-header {
@@ -97,6 +99,7 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
+  margin-bottom: 3em;
 }
 
 .search-bar {
@@ -109,6 +112,7 @@ main {
   border: none;
   backdrop-filter: blur(6px);
   border-radius: 8px;
+  
   /* gap: 1em; */
 }
 
@@ -133,6 +137,11 @@ main {
   
 }
 
+.shows-section {
+  min-height: 55vh;
+
+}
+
 .movie-icon-div,
 .watchlist-icon-div {
   opacity: 0.5;
@@ -140,11 +149,48 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 55vh;
 }
 
 .show-card {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+  color: #fff;
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #313131;
+}
+
+.show-card-info {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-300);
+  gap: 0.5em;
+}
+
+.show-card-img {
+  width: 80px;
+  height: 100%;
+}
+
+.show-title {
+  font-size: var(--fs-500);
+}
+
+.rating-icon {
+  width: 10px;
+}
+
+.show-overview {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.action-btn {
+  border: none;
+  background-color: #151313;
   color: #fff;
 }
 
