@@ -24,7 +24,9 @@ export const generateEmptyStateHtml = (mode) => {
 
 
 export const generateShowHtml = (shows, mode) => {
-    const buttonText = mode === 'add' ? 'Watchlist' : 'Remove'
+    const buttonText = mode === 'add' 
+        ? '<i class="fa-solid fa-circle-plus" style="color: rgb(255, 255, 255)"></i>  Watchlist' 
+        : '<i class="fa-solid fa-circle-minus" style="color: rgb(255, 255, 255)"></i> Remove'
     const action = mode === 'add' ? 'add' : 'remove'
 
     let feedHtml = ''
@@ -38,7 +40,9 @@ export const generateShowHtml = (shows, mode) => {
         <div class="show-card-info">
             <h2 class="show-title">
                 ${show.label} 
-                <span> 
+                <span>
+                    <img                class="rating-icon"
+                    src="../assets/star-solid.svg"/>
                     ${show.rating} 
                 </span>
             </h2>
@@ -50,6 +54,7 @@ export const generateShowHtml = (shows, mode) => {
                     class="action-btn" 
                     data-action="${action}" 
                     data-id="${show.id}">
+                    
                         ${buttonText}
                 </button>
             </div>
