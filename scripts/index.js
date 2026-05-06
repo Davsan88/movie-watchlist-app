@@ -41,8 +41,8 @@ const curateShows = (shows) => {
   }) => ({
     id,
     releaseDate:
-      release_date ??
-      first_air_date,
+      new Date (release_date || first_air_date)
+      .getFullYear(),
     backdropPath:
       backdrop_path,
     posterUrl:
