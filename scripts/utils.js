@@ -40,13 +40,17 @@ export const generateShowHtml = (shows, mode) => {
         <div class="show-card-info">
             <h2 class="show-title">
                 ${show.label} 
+                
+            </h2>
+            <div class="show-details">
                 <span>
                     <img                class="rating-icon"
                     src="../assets/star-solid.svg"/>
                     ${show.rating} 
                 </span>
-            </h2>
-            <div class="show-details">
+                <span>
+                    ${show.releaseDate}
+                </span>
                 <span class="media-type-span">
                     ${show.mediaType}
                 </span>
