@@ -10,8 +10,35 @@ let curatedShowsArr = []
 let watchlist = []
 
 
+const fetchGenres = async () => {
+ 
+  const movieRes = await fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&language=en')
+  const movieGenres = await movieRes.json()
+
+  const movieGenresArr = movieGenres.genres
+  
+  const tvRes = await fetch('https://api.themoviedb.org/3/genre/tv/list?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&language=en')
+  const tvGenres = await tvRes.json()
+
+  const tvGenresArr = tvGenres.genres
+
+  const arrayToObject = (arr) => arr.reduce((obj, item) => {
+      obj[item.id] = item
+      return obj
+    }, {})
+
+  const movieGenresObj = arrayToObject(movieGenresArr)
+
+  const tvGenresObj = arrayToObject(tvGenresArr)
+  
+ 
+  console.log(tvGenresObj)
+}
+
+
 const initializeIndexPage = () => {
   showsSection.innerHTML = generateEmptyStateHtml('index')
+  fetchGenres()
 }
 
 const curateShows = (shows) => {
@@ -21,8 +48,6 @@ const curateShows = (shows) => {
 
     const allowedTypes = ["movie", "tv"]
     return allowedTypes.includes(show.media_type)
-
-
   })
 
   return movieAndTvShows.map(({
@@ -76,6 +101,8 @@ const handleClick = async (e) => {
 
   const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&query=${encodeURIComponent(inputValue)}`)
   const data = await res.json()
+
+  console.log(data)
 
   curatedShowsArr = curateShows(data.results)
 
