@@ -49,7 +49,6 @@ export const generateShowHtml = (shows, mode) => {
                 </span>
             </div>
             <div class="show-details">
-                
                 <span>
                     ${show.releaseDate}
                 </span>
@@ -59,14 +58,14 @@ export const generateShowHtml = (shows, mode) => {
                 <span>
                     ${show.genres}
                 </span>
-                <button 
-                    class="action-btn" 
-                    data-action="${action}" 
-                    data-id="${show.id}">
-                    
-                        ${buttonText}
-                </button>
             </div>
+            <button 
+                class="action-btn" 
+                data-action="${action}" 
+                data-id="${show.id}">
+                
+                    ${buttonText}
+            </button>
             <p class="show-overview">${show.overview}</p>
         </div>
     </div>
