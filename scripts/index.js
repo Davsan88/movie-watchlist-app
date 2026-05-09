@@ -1,4 +1,4 @@
-import { generateShowHtml, generateEmptyStateHtml } from "./utils.js"
+import { generateShowHtml, generateEmptyStateHtml, arrayToObject } from "./utils.js"
 
 const form = document.getElementById('search-bar')
 const searchInput = document.getElementById('search-input')
@@ -10,13 +10,6 @@ let curatedShowsArr = []
 let watchlist = []
 let movieGenresObj = {}
 let tvGenresObj = {}
-
-
-const arrayToObject = (arr) => 
-  arr.reduce((obj, item) => {
-    obj[item.id] = item.name
-    return obj
-}, {})
 
 
 const fetchGenres = async () => {
@@ -38,8 +31,10 @@ const fetchGenres = async () => {
 
 const checkGenre = (mediaType, genresArr) => {
   if (mediaType === 'movie') {
-    return genresArr.map( genre => movieGenresObj[genre])
-  } 
+    return genresArr.map( genre => movieGenresObj[genre]).join(', ')
+  } else {
+    return genresArr.map(genre => tvGenresObj[genre]).join(', ')
+  }
 }
 
 const initializeIndexPage = () => {
