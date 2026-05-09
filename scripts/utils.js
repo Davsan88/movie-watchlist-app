@@ -38,21 +38,26 @@ export const generateShowHtml = (shows, mode) => {
         <img class="show-card-img" src="${show.posterUrl}"/>
         
         <div class="show-card-info">
-            <h2 class="show-title">
-                ${show.label} 
-                
-            </h2>
-            <div class="show-details">
+            <div class="title-div">
+                <h2 class="show-title">
+                    ${show.label} 
+                </h2>
                 <span>
                     <img                class="rating-icon"
                     src="../assets/star-solid.svg"/>
                     ${show.rating} 
                 </span>
+            </div>
+            <div class="show-details">
+                
                 <span>
                     ${show.releaseDate}
                 </span>
                 <span class="media-type-span">
                     ${show.mediaType}
+                </span>
+                <span>
+                    ${show.genres}
                 </span>
                 <button 
                     class="action-btn" 
@@ -72,3 +77,8 @@ export const generateShowHtml = (shows, mode) => {
 }
 
 
+export const arrayToObject = (arr) => 
+  arr.reduce((obj, item) => {
+    obj[item.id] = item.name
+    return obj
+}, {})
