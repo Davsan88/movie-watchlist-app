@@ -172,13 +172,19 @@ main {
 
 .show-details {
   display: flex;
-  gap: 2em;
+  gap: 1em;
 }
 
 
 .show-card-img {
   width: 80px;
   height: 100%;
+}
+
+.title-div {
+  display: flex;
+  align-items:end;
+  gap: 1em;
 }
 
 .show-title {
@@ -200,6 +206,12 @@ main {
   border: none;
   background-color: #151313;
   color: #fff;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.media-type-span::first-letter {
+  text-transform: capitalize;
 }
 
 footer {
