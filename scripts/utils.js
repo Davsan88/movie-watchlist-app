@@ -42,7 +42,7 @@ export const generateShowHtml = (shows, mode) => {
                 <h2 class="show-title">
                     ${show.label} 
                 </h2>
-                <span>
+                <span class="rating-div">
                     <img                class="rating-icon"
                     src="../assets/star-solid.svg"/>
                     ${show.rating} 
