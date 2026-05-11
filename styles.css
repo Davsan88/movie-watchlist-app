@@ -190,7 +190,7 @@ main {
 }
 
 .show-title {
-  background-color: aqua;
+  /* background-color: aqua; */
   /* width: clamp(30px, 50vw, 900px); */
   /* flex: 1; */
   font-size: var(--fs-500);
@@ -214,6 +214,13 @@ main {
 .show-overview {
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.genres-span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

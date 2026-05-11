@@ -55,7 +55,7 @@ export const generateShowHtml = (shows, mode) => {
                 <span class="media-type-span">
                     ${show.mediaType}
                 </span>
-                <span>
+                <span class="genres-span">
                     ${show.genres}
                 </span>
             </div>
