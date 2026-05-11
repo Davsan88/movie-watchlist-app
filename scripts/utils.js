@@ -4,8 +4,8 @@ export const generateEmptyStateHtml = (mode) => {
         : 'watchlist'
 
     const span = mode === 'index' 
-        ? 'Start exploring' 
-        : 'Your watchlist is looking a little empty... Let’s add some shows.'
+        ? 'Not all those who wander are lost.' 
+        : 'A disturbance in the Force… your watchlist is empty...<br>Let’s add some shows!'
 
    return `
             <div 
@@ -15,7 +15,7 @@ export const generateEmptyStateHtml = (mode) => {
                     <path fill="#404040"
                         d="M0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM48 368l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm304-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM48 240l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm304-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM48 112l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16L64 96c-8.8 0-16 7.2-16 16zM352 96c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z" />
                 </svg>
-                <span>
+                <span class="emty-watchlist-message">
                     ${span}
                 </span>
             </div>
