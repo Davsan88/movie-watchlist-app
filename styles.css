@@ -148,6 +148,17 @@ main {
   border-radius: 0 7px 7px 0;
   width: 90px;
   color: #fff;
+  transition: 
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+#search-btn:hover {
+  background-color: #5c5c5c;
+}
+
+#search-btn:active {
+  transform: scale(0.97);
 }
 
 .shows-section {
@@ -242,15 +253,56 @@ main {
 }
 
 .action-btn {
-  border: none;
+  cursor: pointer;
+  border: solid 1px #313131;
+  padding: 0.35em 0.75em;
+  border-radius: 25px;
   background-color: #151313;
   color: #fff;
   margin-left: 0;
   margin-right: auto;
+  transition:
+    background-color 0.2s ease,
+    color 0.2 ease,
+    transform 0.15s ease;
+}
+
+.action-btn:hover {
+  background-color: #262626;
+}
+
+.action-btn:active {
+  transform: scale(0.96);
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.action-btn:disabled:hover {
+  background-color: #151313;
+  transform: none;
+}
+
+.saved {
+  background-color: #1f5132;
+  color: #d7ffe3;
+}
+
+.removed {
+  background-color: #5a1f1f;
+  color: #ffd6d6;
 }
 
 .media-type-span::first-letter {
   text-transform: capitalize;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #7aa2ff;
+  outline-offset: 2px;
 }
 
 footer {
@@ -291,10 +343,6 @@ footer {
 }
 
 
-button.action-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 
 
 
