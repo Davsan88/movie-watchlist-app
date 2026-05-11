@@ -91,10 +91,22 @@ main {
 .site-header {
   /* background-color: aqua; */
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 2.5em;
   padding: 2em 0;
 }
+
+.main-heading {
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.navigation-tag {
+  /* margin-top: 0.25em; */
+}
+
 
 .search-section {
   position: relative;
@@ -130,12 +142,12 @@ main {
 }
 
 #search-btn {
+  cursor: pointer;
   border: none;
   background-color: #4B4B4B;
   border-radius: 0 7px 7px 0;
   width: 90px;
   color: #fff;
-
 }
 
 .shows-section {
@@ -286,7 +298,21 @@ button.action-btn:disabled {
 
 
 
+
+
+
 @media (min-width: 600px) {
+
+  .site-header {
+    display: flex;
+    flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 0;
+  gap: 1em
+  }
+
+
   .footer-container {
     flex-direction: row;
     justify-content: space-between;
