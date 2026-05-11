@@ -109,6 +109,12 @@ const handleClick = async (e) => {
   const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&query=${encodeURIComponent(inputValue)}`)
   const data = await res.json()
 
+  if (!data.results.length) {
+    console.log('no data retrieved')
+    showsSection.innerHTML = '<p class="no-data-message">These aren’t the shows you’re looking for. Try another search.</p>'
+    return
+  }
+
   console.log(data)
 
   curatedShowsArr = curateShows(data.results)
