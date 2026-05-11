@@ -199,8 +199,6 @@ main {
   border-color: #4a4a4a;
 }
 
-
-
 .show-card-info {
   flex: 1;
   display: flex;
@@ -214,10 +212,17 @@ main {
   gap: 1em;
 }
 
-
 .show-card-img {
   width: 80px;
   height: 100%;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.show-card:hover .show-card-img {
+  transform: scale(1.02);
+  opacity: 0.95;
 }
 
 .title-div {
