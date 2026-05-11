@@ -88,7 +88,7 @@ const curateShows = (shows) => {
       original_name ??
       "No title",
     genres:
-      checkGenre(media_type, genre_ids),
+      checkGenre(media_type, genre_ids.slice(0, 3)),
       
       
 
