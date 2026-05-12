@@ -362,8 +362,7 @@ footer {
 }
 
 .footer-title {
-  color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.25em;
 }
 
@@ -375,8 +374,12 @@ footer {
 .tmdb-logo {
   width: 55px;
   opacity: 0.5;
+  transition: opacity 0.2s ease;
 }
 
+.tmdb-logo:hover {
+  opacity: 1;
+}
 
 .film-icon {
   width: 50px;
