@@ -98,8 +98,13 @@ main {
   padding: 2em 0;
 }
 
-.main-heading {
+.main-heading,
+.navigation-tag {
+  text-shadow: 0 2px 16px rgba(108, 105, 105, 0.74);
   letter-spacing: 0.03em;
+}
+
+.main-heading {
   line-height: 1;
 }
 
@@ -107,6 +112,7 @@ main {
   position: relative;
   text-decoration: none;
   transition: color 0.2s ease;
+  font-weight: 500;
 }
 
 .navigation-tag::after {
