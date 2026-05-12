@@ -8,7 +8,7 @@
 
 
 /* ====================
-   Base
+   Base / Reset
    ==================== */
 
 *,
@@ -27,6 +27,13 @@ p {
 
 body {
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 200;
+  color: #404040;
+  line-height: 1.5;
 }
 
 a {
@@ -34,23 +41,25 @@ a {
   color: inherit;
 }
 
+
 /* ====================
    Typography
    ==================== */
 
-body {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 200;
-  color: #404040;
-  line-height: 1.5;
-}
-
 .main-heading {
   font-size: var(--fs-xl);
+  line-height: 1;
 }
 
 .navigation-tag {
   font-size: var(--fs-400);
+  font-weight: 500;
+}
+
+.main-heading,
+.navigation-tag {
+  text-shadow: 0 2px 16px rgba(108, 105, 105, 0.74);
+  letter-spacing: 0.03em;
 }
 
 
@@ -63,11 +72,16 @@ body {
   margin-inline: auto;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+main {
+  background-color: #151313;
+  padding-bottom: 2em;
+  flex: 1;
 }
+
+
+/* ====================
+   Header / Navigation
+   ==================== */
 
 header {
   background:
@@ -82,12 +96,6 @@ header {
   color: #fff;
 }
 
-main {
-  background-color: #151313;
-  padding-bottom: 2em;
-  flex: 1;
-}
-
 .site-header {
   display: flex;
   flex-direction: column;
@@ -97,21 +105,9 @@ main {
   padding: 2em 0;
 }
 
-.main-heading,
-.navigation-tag {
-  text-shadow: 0 2px 16px rgba(108, 105, 105, 0.74);
-  letter-spacing: 0.03em;
-}
-
-.main-heading {
-  line-height: 1;
-}
-
 .navigation-tag {
   position: relative;
-  text-decoration: none;
   transition: color 0.2s ease;
-  font-weight: 500;
 }
 
 .navigation-tag::after {
@@ -131,6 +127,11 @@ main {
   transform: scaleX(1);
 }
 
+
+/* ====================
+   Search Bar
+   ==================== */
+
 .search-section {
   position: relative;
   display: flex;
@@ -141,12 +142,12 @@ main {
 .search-bar {
   background-color: #2E2E2F;
   position: absolute;
-  width: 100%;
   top: -18px;
+  width: 100%;
   display: flex;
   border: none;
-  backdrop-filter: blur(6px);
   border-radius: 8px;
+  backdrop-filter: blur(6px);
 }
 
 .search-icon {
@@ -168,7 +169,7 @@ main {
   border-radius: 0 7px 7px 0;
   width: 90px;
   color: #fff;
-  transition: 
+  transition:
     background-color 0.2s ease,
     transform 0.15s ease;
 }
@@ -181,6 +182,11 @@ main {
   transform: scale(0.97);
 }
 
+
+/* ====================
+   Empty / Status States
+   ==================== */
+
 .shows-section {
   display: flex;
   flex-direction: column;
@@ -190,6 +196,8 @@ main {
 
 .no-data-message {
   align-self: center;
+  color: #bdbdbd;
+  text-align: center;
 }
 
 .movie-icon-div,
@@ -200,6 +208,15 @@ main {
   align-items: center;
 }
 
+.film-icon {
+  width: 50px;
+}
+
+
+/* ====================
+   Show Cards
+   ==================== */
+
 .show-card {
   color: #fff;
   display: flex;
@@ -208,9 +225,9 @@ main {
   padding-bottom: 1em;
   border-bottom: 1px solid #313131;
   transition:
-    transform 0.2 ease,
-    border-color 0.2 ease,
-    background-color 0.2 ease;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .show-card:hover {
@@ -224,11 +241,7 @@ main {
   flex-direction: column;
   font-size: var(--fs-300);
   gap: 0.5em;
-}
-
-.show-details {
-  display: flex;
-  gap: 1em;
+  min-width: 0;
 }
 
 .show-card-img {
@@ -261,7 +274,7 @@ main {
 
 .rating-div {
   display: flex;
-  flex: 0;
+  flex-shrink: 0;
   gap: 5px;
   width: 30px;
 }
@@ -270,19 +283,34 @@ main {
   width: 10px;
 }
 
+.show-details {
+  display: flex;
+  gap: 1em;
+}
+
+.media-type-span::first-letter {
+  text-transform: capitalize;
+}
+
+.genres-span,
 .show-overview {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .genres-span {
-  display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
+
+.show-overview {
+  -webkit-line-clamp: 4;
+}
+
+
+/* ====================
+   Buttons / Interactive States
+   ==================== */
 
 .action-btn {
   cursor: pointer;
@@ -295,7 +323,7 @@ main {
   margin-right: auto;
   transition:
     background-color 0.2s ease,
-    color 0.2 ease,
+    color 0.2s ease,
     transform 0.15s ease;
 }
 
@@ -327,15 +355,16 @@ main {
   color: #ffd6d6;
 }
 
-.media-type-span::first-letter {
-  text-transform: capitalize;
-}
-
 button:focus-visible,
 input:focus-visible {
   outline: 2px solid #7aa2ff;
   outline-offset: 2px;
 }
+
+
+/* ====================
+   Footer
+   ==================== */
 
 footer {
   background-color: #151313;
@@ -373,28 +402,19 @@ footer {
   opacity: 1;
 }
 
-.film-icon {
-  width: 50px;
-}
 
-
-
-
-
-
-
+/* ====================
+   Media Queries
+   ==================== */
 
 @media (min-width: 600px) {
-
   .site-header {
-    display: flex;
     flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2em 0;
-  gap: 1em
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 2em 0;
   }
-
 
   .footer-container {
     flex-direction: row;
