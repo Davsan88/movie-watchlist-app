@@ -1,13 +1,27 @@
+// ====================
+// Imports
+// ====================
+
 import { generateShowHtml, generateEmptyStateHtml } from "./utils.js"
+
+
+// ====================
+// DOM References
+// ====================
 
 const watchlistSection = document.getElementById('watchlist-section')
 
 
+// ====================
+// State
+// ====================
+
 let watchlist = []
 
 
-
-
+// ====================
+// UI Initialization
+// ====================
 
 const initializeWatchList = () => {
   watchlist = JSON.parse(localStorage.getItem('watchlist')) || []
@@ -18,6 +32,10 @@ const initializeWatchList = () => {
 }
 
 
+// ====================
+// Event Handlers
+// ====================
+
 const handleDeleteFromWatchlist = showId => {
   const filteredWatchlist = watchlist.filter(show => show.id !== showId)
 
@@ -26,6 +44,10 @@ const handleDeleteFromWatchlist = showId => {
   initializeWatchList()
 }
 
+
+// ====================
+// Event Listeners
+// ====================
 
 watchlistSection.addEventListener('click', function (e) {
   const actionBtn = e.target.closest('[data-action]')
@@ -45,5 +67,9 @@ watchlistSection.addEventListener('click', function (e) {
   }, 400)
 })
 
+
+// ====================
+// App Initialization
+// ====================
 
 initializeWatchList()
