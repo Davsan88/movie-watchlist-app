@@ -56,20 +56,3 @@
 9. Ratings are formatted
 10. Basic loading/no-results/error states exist
 11. CSS is responsive enough for mobile + desktop
-
-const show = {
-    id: "",
-    title: "",
-    poster: "",
-    rating: "",
-    releaseDate: "",
-    overview: ""
-}
-
-
-hue 34
-sat 24
-lum 86  
-r 183
-g 155
-b 0
