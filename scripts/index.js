@@ -53,11 +53,11 @@ const fetchGenres = async () => {
 
 
 const checkGenre = (mediaType, genresArr) => {
-  if (mediaType === 'movie') {
-    return genresArr.map( genre => movieGenresObj[genre]).join(', ')
-  } else {
-    return genresArr.map(genre => tvGenresObj[genre]).join(', ')
-  }
+  const genresObj = mediaType === 'movie'
+    ? movieGenresObj
+    : tvGenresObj
+
+    return genresArr.map( genre => genresObj[genre]).join(', ')
 }
 
 
