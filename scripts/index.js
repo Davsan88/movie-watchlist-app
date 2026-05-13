@@ -26,16 +26,24 @@ let tvGenresObj = {}
 
 
 // ====================
+// API Constants
+// ====================
+
+const API_KEY = 'api_key=96b4f733b8a3836c9dfb5ea5e1034a79'
+const BASE_URL = 'https://api.themoviedb.org/3'
+
+
+// ====================
 // Data Helpers
 // ====================
 
 const fetchGenres = async () => {
  
-  const movieRes = await fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&language=en')
+  const movieRes = await fetch(`${BASE_URL}/genre/movie/list?${API_KEY}&language=en`)
   const movieGenres = await movieRes.json()
   const movieGenresArr = movieGenres.genres
   
-  const tvRes = await fetch('https://api.themoviedb.org/3/genre/tv/list?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&language=en')
+  const tvRes = await fetch(`${BASE_URL}/genre/tv/list?${API_KEY}&language=en`)
   const tvGenres = await tvRes.json()
   const tvGenresArr = tvGenres.genres
 
@@ -127,7 +135,7 @@ const handleClick = async (e) => {
         return
   }
 
-  const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=96b4f733b8a3836c9dfb5ea5e1034a79&query=${encodeURIComponent(inputValue)}`)
+  const res = await fetch(`${BASE_URL}/search/multi?${API_KEY}&query=${encodeURIComponent(inputValue)}`)
   const data = await res.json()
 
   if (!data.results.length) {
