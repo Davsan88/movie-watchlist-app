@@ -1,3 +1,7 @@
+// ====================
+// Helper Functions
+// ====================
+
 export const generateEmptyStateHtml = (mode) => {
     const classDiv = mode === 'index' 
         ? 'movie' 
