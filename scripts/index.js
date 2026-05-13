@@ -57,7 +57,9 @@ const checkGenre = (mediaType, genresArr) => {
     ? movieGenresObj
     : tvGenresObj
 
-    return genresArr.map( genre => genresObj[genre]).join(', ')
+    return genresArr
+      .map( genre => genresObj[genre])
+      .join(', ')
 }
 
 
