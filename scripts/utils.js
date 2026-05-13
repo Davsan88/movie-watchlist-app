@@ -31,7 +31,9 @@ export const generateShowHtml = (shows, mode) => {
     const buttonText = mode === 'add' 
         ? '<i class="fa-solid fa-circle-plus" style="color: rgb(255, 255, 255)"></i>  Watchlist' 
         : '<i class="fa-solid fa-circle-minus" style="color: rgb(255, 255, 255)"></i> Remove'
-    const action = mode === 'add' ? 'add' : 'remove'
+    const action = mode === 'add' 
+        ? 'add' 
+        : 'remove'
 
     let feedHtml = ''
 
