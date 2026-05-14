@@ -67,3 +67,24 @@ helped me practice thinking more like a frontend engineer rather than simply man
 
 ---
 
+## 🛠️ Technologies Used
+
+* HTML5 – Semantic structure
+* CSS3 – Responsive layout and UI styling
+* JavaScript (ES6) – Rendering logic, API handling, localStorage
+* TMDB API – Movie and TV show data
+
+---
+
+## 🎨 Design Approach
+
+* Mobile-first responsive layout
+* Flexible containers using min() and clamp()
+* Consistent spacing and typography system
+* Reusable component styling
+* Dark cinematic aesthetic inspired by streaming platforms
+* Careful handling of overflowing content and long titles
+* Focus on readability and clean hierarchy
+
+---
+
