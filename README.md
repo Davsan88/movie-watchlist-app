@@ -25,3 +25,45 @@ The goal was to build something that feels closer to a real-world frontend appli
 
 ---
 
+## ✨ What It Does
+
+* ✅ Search movies and TV shows using the TMDB API
+* ✅ Dynamically renders search results
+* ✅ Displays ratings, genres, release year, and overview
+* ✅ Add shows to a persistent watchlist
+* ✅ Remove shows from the watchlist
+* ✅ Watchlist persists using localStorage
+* ✅ Handles missing posters with fallback images
+* ✅ Responsive layout across mobile and desktop
+* ✅ Includes empty states and “no results” feedback
+* ✅ Interactive button states and hover effects
+
+---
+
+## 🧠 Core Concept
+
+The app follows a **data-first rendering approach**.
+
+Raw API responses are transformed into a curated internal structure before rendering:
+
+```js
+{
+  id,
+  label,
+  releaseDate,
+  posterUrl,
+  mediaType,
+  genres,
+  rating,
+  overview
+}
+```
+
+This separation between:
+
+*API data → transformed state → UI rendering*
+
+helped me practice thinking more like a frontend engineer rather than simply manipulating the DOM directly.
+
+---
+
