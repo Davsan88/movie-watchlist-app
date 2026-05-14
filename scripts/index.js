@@ -156,15 +156,16 @@ const handleAddToWatchlist = showId => {
 
   const targetShow = curatedShowsArr.find(show => show.id === showId)
 
-  if (!targetShow) return
+  if (!targetShow) return false
 
   const showInWatchlist = watchlist.find(({ id }) => id === targetShow.id)
 
-  showInWatchlist 
-    ? '' 
-    : watchlist.push(targetShow) 
+  if (showInWatchlist) return false
 
+  watchlist.push(targetShow) 
   localStorage.setItem('watchlist', JSON.stringify(watchlist))
+
+  return true
 }
 
 
@@ -181,13 +182,19 @@ showsSection.addEventListener('click', function (e) {
 
   const btnId = Number(actionBtn.dataset.id)
   const btnAction = actionBtn.dataset.action
-  const originalText = actionBtn.textContent
 
   if (btnAction === 'add') {
-    handleAddToWatchlist(btnId)
-    actionBtn.disabled = true
-    actionBtn.textContent = 'Saved!'
-    actionBtn.classList.add('saved')
+    const wasAdded = handleAddToWatchlist(btnId)
+
+    if (wasAdded) {
+      actionBtn.disabled = true
+      actionBtn.textContent = 'Saved!'
+      actionBtn.classList.add('saved')
+    } else  {
+      actionBtn.textContent = 'Already saved'
+      actionBtn.disabled = true
+      actionBtn.classList.add('saved')
+    }
   }
 })
 
