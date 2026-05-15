@@ -116,3 +116,33 @@ Your saved watchlist will persist after refreshing the page.
 
 ---
 
+## 🎯 What I Focused On
+
+This project was mainly about improving my ability to:
+
+* Organize JavaScript cleanly
+* Work with real API data
+* Transform and curate data before rendering
+* Build reusable rendering logic
+* Improve responsive UI consistency
+* Polish user interactions and feedback states
+
+I also spent significant time refining layout edge cases like:
+
+* Long titles
+* Long genres
+* Missing images
+* Responsive card alignment
+
+---
+
+## 🏗️ Possible Next Steps
+
+* 🔍 Search suggestions / autocomplete
+* 🎭 Filter by genre
+* 📄 Individual details page for each show
+* 💾 Backend persistence instead of localStorage
+* ⚛ Rebuild with React
+* 🌙 Theme toggle / dark-light mode
+* 🎬 Trailer integration
+* 🔐 API proxying with Netlify Functions
