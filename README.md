@@ -146,3 +146,20 @@ I also spent significant time refining layout edge cases like:
 * 🌙 Theme toggle / dark-light mode
 * 🎬 Trailer integration
 * 🔐 API proxying with Netlify Functions
+
+---
+
+## 💡 Skills Practiced
+
+* API consumption and asynchronous JavaScript
+* Data transformation and normalization
+* localStorage persistence
+* Event delegation patterns
+* Responsive design and layout debugging
+* UI/UX polish
+* CSS organization and maintainability
+* Reusable rendering helpers
+* Component-style thinking in vanilla JavaScript
+
+---
+
