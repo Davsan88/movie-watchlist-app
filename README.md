@@ -88,3 +88,31 @@ helped me practice thinking more like a frontend engineer rather than simply man
 
 ---
 
+## 📚 Features Covered
+
+* Dynamic rendering using template functions
+* Fetching and transforming external API data
+* localStorage persistence
+* Event delegation
+* Reusable rendering helpers
+* Conditional rendering for empty states
+* Fallback image handling
+* Genre lookup tables using transformed objects
+* Responsive card layouts
+* Hover, focus, active, disabled, saved, and removed button states
+* CSS architecture organization (base / typography / layout / components)
+
+---
+
+## 🧪 How to Use
+
+1. Search for a movie or TV show
+2. Browse the rendered results
+3. Add shows to your watchlist
+4. Visit the Watchlist page
+5. Remove shows whenever you want
+
+Your saved watchlist will persist after refreshing the page.
+
+---
+
