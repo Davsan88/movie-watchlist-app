@@ -3,7 +3,7 @@
 Hello there! 👋
 This is a responsive movie and TV watchlist app powered by the TMDB API, where users can search for shows, explore results, and save titles to a personal watchlist.
 
-👉 [**Live Demo**]()
+👉 [**Live Demo**](https://watchlist-app-davsan.netlify.app/)
 
 ---
 
@@ -182,7 +182,7 @@ It helped me move beyond tutorial-style coding and closer toward building applic
 
 ## 🌐 Live Demo
 
-👉 [**Live Demo**]()
+👉 [**Live Demo**](https://watchlist-app-davsan.netlify.app/)
 
 ---
 
