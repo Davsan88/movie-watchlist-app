@@ -163,3 +163,30 @@ I also spent significant time refining layout edge cases like:
 
 ---
 
+## ✅ Why I’m Proud
+
+This project represents a big step forward in how I approach frontend development.
+
+Rather than only focusing on “making it work,” I spent time thinking about:
+
+* Structure
+* Maintainability
+* User experience
+* Responsiveness
+* Reusability
+* Clean rendering logic
+
+It helped me move beyond tutorial-style coding and closer toward building applications with more intentional architecture and polish.
+
+---
+
+## 🌐 Live Demo
+
+👉 [**Live Demo**]()
+
+---
+
+## 📫 Contact
+
+Got feedback or questions?
+📧 [david.sanchez.martinez@outlook.com](mailto:david.sanchez.martinez@outlook.com)
